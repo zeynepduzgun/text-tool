@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./TextInput.scss";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
+
 const TextInput = (props) => {
   const [value, setValue] = useState(props.name);
   const [characterCount, setCharacterCount] = useState(0);
@@ -24,7 +24,7 @@ const TextInput = (props) => {
 
   return (
     <div className="TextInput">
-      <h4 className="tool-title">{props.toolName}</h4>
+      <h4 className="tool-title">{props.toolType}</h4>
       <Form.Control
         as="textarea"
         style={{ height: "150px" }}
