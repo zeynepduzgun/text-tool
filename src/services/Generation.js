@@ -1,7 +1,11 @@
 import GeneratorType from "../components/enums";
 
+const Generation = (props) => {
+  return handleGeneration(props);
+};
+
 function handleGeneration(props) {
-  const generationMode = props.generationMode;
+  const generationMode = props.mode;
   switch (generationMode) {
     case GeneratorType.Smallcase:
       return SmallCaseGeneration(props.text);
@@ -20,7 +24,12 @@ function handleGeneration(props) {
   }
 }
 
-function SmallCaseGeneration(text) {}
+function SmallCaseGeneration(text) {
+  console.log("test");
+  return <p>Oley!</p>;
+}
 function WideTextGeneration(text) {}
 function BoldTextGeneration(text) {}
 function StrikethroughGeneration(text) {}
+
+export default Generation;

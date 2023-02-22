@@ -3,8 +3,9 @@ import TextInput from "../../components/TextInput/TextInput";
 import Tabs from "react-bootstrap/Tabs";
 import { useState } from "react";
 import ToolTypes from "../../components/enums";
+import Generation from "../../services/Generation";
 
-const Generator = () => {
+const Generator = (props) => {
   const [toolType, setToolType] = useState(ToolTypes.Generator.Smallcase);
   return (
     <div className="Generator">
@@ -34,6 +35,7 @@ const Generator = () => {
           <TextInput toolType={toolType}></TextInput>
         </Tab>
       </Tabs>
+      <Generation mode={toolType} text={props.text} />
     </div>
   );
 };

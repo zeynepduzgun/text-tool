@@ -4,7 +4,7 @@ import "./TextInput.scss";
 import Form from "react-bootstrap/Form";
 
 const TextInput = (props) => {
-  const [value, setValue] = useState(props.name);
+  const [text, setText] = useState(props.name);
   const [characterCount, setCharacterCount] = useState(0);
   const [wordCount, setWordCount] = useState(0);
   const [lineCount, setLineCount] = useState(0);
@@ -16,7 +16,7 @@ const TextInput = (props) => {
   }
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setText(event.target.value);
     setCharacterCount(event.target.value.length);
     setWordCount(event.target.value.split(" ").length);
     setLineCount(calculateline(event.target.value));
