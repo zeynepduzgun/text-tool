@@ -1,35 +1,34 @@
-import GeneratorType from "../components/enums";
+import ToolTypes from "../components/enums";
 
-const Generation = (props) => {
-  return handleGeneration(props);
-};
-
-function handleGeneration(props) {
-  const generationMode = props.mode;
+function handleGeneration(mode) {
+  const generationMode = mode;
   switch (generationMode) {
-    case GeneratorType.Smallcase:
-      return SmallCaseGeneration(props.text);
-      break;
-    case GeneratorType.Wide:
-      return WideTextGeneration(props.text);
-      break;
-    case GeneratorType.Bold:
-      return BoldTextGeneration(props.text);
-      break;
-    case GeneratorType.Strikethrough:
-      return StrikethroughGeneration(props.text);
-      break;
+    case ToolTypes.Generator.Smallcase:
+      return SmallCaseGeneration();
+    case ToolTypes.Generator.Wide:
+      return WideTextGeneration();
+    case ToolTypes.Generator.Bold:
+      return BoldTextGeneration();
+    case ToolTypes.Generator.Strikethrough:
+      return StrikethroughGeneration();
     default:
       return null;
   }
 }
 
-function SmallCaseGeneration(text) {
-  console.log("test");
-  return <p>Oley!</p>;
+function SmallCaseGeneration() {
+  return {
+    textTransform: "lowercase",
+  };
 }
-function WideTextGeneration(text) {}
-function BoldTextGeneration(text) {}
-function StrikethroughGeneration(text) {}
+function WideTextGeneration() {
+  return { fontStretch: "expanded" };
+}
+function BoldTextGeneration() {
+  return { fontWeight: "bold" };
+}
+function StrikethroughGeneration() {
+  return { textDecoration: "line-through" };
+}
 
-export default Generation;
+export default handleGeneration;

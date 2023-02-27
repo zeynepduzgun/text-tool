@@ -16,6 +16,7 @@ const TextInput = (props) => {
   }
 
   const handleChange = (event) => {
+    props.func(text);
     setText(event.target.value);
     setCharacterCount(event.target.value.length);
     setWordCount(event.target.value.split(" ").length);
@@ -35,19 +36,9 @@ const TextInput = (props) => {
         <b>Character Count:</b> {characterCount} •&nbsp; <b>Word Count:</b>{" "}
         {wordCount} • &nbsp; <b>Line Count:</b> {lineCount}
       </p>
-
-      {/* OUTPUT TEXTAREA */}
-
-      <Form.Control
-        as="textarea"
-        style={{ height: "150px", marginTop: "2%" }}
-        readOnly
-        placeholder="Output text"
-      />
     </div>
   );
 };
-TextInput.propTypes = {};
 
 TextInput.defaultProps = {};
 
